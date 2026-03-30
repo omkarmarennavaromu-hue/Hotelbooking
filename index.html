@@ -1,0 +1,723 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Golden Luxury Hotel | Elegance & Comfort</title>
+  <!-- Google Fonts & Smooth Scroll Behavior -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background-color: #0a0c12;
+      color: #e6e9f0;
+      overflow-x: hidden;
+      scroll-behavior: smooth;
+    }
+
+    /* Custom scrollbar */
+    ::-webkit-scrollbar {
+      width: 8px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #1e1f2a;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #c5a572;
+      border-radius: 6px;
+    }
+
+    /* Elegant Color Palette */
+    :root {
+      --navy-deep: #0a1927;
+      --gold: #c5a572;
+      --gold-light: #e0c294;
+      --dark-wood: #2c241a;
+      --white-soft: #fef9f0;
+      --glass-bg: rgba(20, 22, 32, 0.65);
+      --glass-border: rgba(197, 165, 114, 0.25);
+    }
+
+    h1, h2, h3, .logo, .cta-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      color: var(--gold);
+      margin-bottom: 1.5rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+    .section-title h2:after {
+      content: '';
+      display: block;
+      width: 70px;
+      height: 3px;
+      background: var(--gold);
+      margin: 12px auto 0;
+      border-radius: 3px;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* Glassmorphism card style */
+    .glass-card {
+      background: var(--glass-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--glass-border);
+      border-radius: 28px;
+      transition: all 0.4s ease;
+      overflow: hidden;
+    }
+
+    /* Buttons */
+    .btn-gold {
+      display: inline-block;
+      background: var(--gold);
+      color: #0a0c12;
+      font-weight: 600;
+      padding: 12px 32px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-family: 'Montserrat', sans-serif;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      letter-spacing: 1px;
+      box-shadow: 0 8px 20px rgba(197, 165, 114, 0.3);
+    }
+    .btn-gold:hover {
+      background: #e0c294;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 28px rgba(197, 165, 114, 0.5);
+    }
+
+    /* Hero Section */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    .hero-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+      filter: brightness(0.5) contrast(1.1);
+    }
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(10,25,23,0.3) 0%, rgba(0,0,0,0.7) 100%);
+      z-index: -1;
+    }
+    .hero-content {
+      max-width: 900px;
+      padding: 2rem;
+      animation: fadeUp 1s ease-out;
+    }
+    .hero-content h1 {
+      font-size: 4.5rem;
+      color: white;
+      text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+      margin-bottom: 1.2rem;
+    }
+    .hero-content p {
+      font-size: 1.3rem;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      color: #f0e9dd;
+    }
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(40px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* About Section */
+    .about {
+      padding: 100px 0;
+      background: #0f121b;
+    }
+    .about-grid {
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .about-text {
+      flex: 1;
+    }
+    .about-text p {
+      line-height: 1.8;
+      margin-bottom: 1rem;
+      color: #cdd1e0;
+    }
+    .about-img {
+      flex: 1;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 30px -10px rgba(0,0,0,0.5);
+    }
+    .about-img img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: transform 0.5s ease;
+    }
+    .about-img:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Rooms Section */
+    .rooms {
+      padding: 100px 0;
+      background: #0a0c12;
+    }
+    .rooms-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .room-card {
+      flex: 1;
+      min-width: 280px;
+      max-width: 350px;
+      transition: all 0.3s ease;
+      transform: translateY(0);
+    }
+    .room-card:hover {
+      transform: translateY(-12px);
+      border-color: var(--gold);
+      box-shadow: 0 20px 35px -8px rgba(197,165,114,0.2);
+    }
+    .room-img {
+      height: 240px;
+      overflow: hidden;
+    }
+    .room-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+    .room-card:hover .room-img img {
+      transform: scale(1.08);
+    }
+    .room-info {
+      padding: 1.8rem;
+    }
+    .room-info h3 {
+      font-size: 1.8rem;
+      color: var(--gold-light);
+      margin-bottom: 0.5rem;
+    }
+    .room-info p {
+      margin: 0.5rem 0;
+      font-size: 0.9rem;
+    }
+    .price {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--gold);
+      margin: 1rem 0;
+    }
+
+    /* Facilities */
+    .facilities {
+      padding: 100px 0;
+      background: #0f121b;
+    }
+    .facilities-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+    }
+    .facility-item {
+      background: rgba(0,0,0,0.4);
+      backdrop-filter: blur(8px);
+      border-radius: 32px;
+      width: 200px;
+      text-align: center;
+      padding: 1.5rem 1rem;
+      transition: all 0.3s;
+      border: 1px solid rgba(197,165,114,0.3);
+    }
+    .facility-item:hover {
+      transform: scale(1.05);
+      border-color: var(--gold);
+      background: rgba(197,165,114,0.1);
+    }
+    .facility-item img {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1rem;
+      border: 2px solid var(--gold);
+    }
+    .facility-item h4 {
+      margin-top: 0.5rem;
+      font-size: 1.2rem;
+    }
+
+    /* Gallery */
+    .gallery {
+      padding: 100px 0;
+      background: #0a0c12;
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.8rem;
+    }
+    .gallery-item {
+      border-radius: 24px;
+      overflow: hidden;
+      position: relative;
+      cursor: pointer;
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 260px;
+      object-fit: cover;
+      transition: all 0.5s ease;
+    }
+    .gallery-item:hover img {
+      transform: scale(1.08);
+    }
+    .gallery-item:hover {
+      box-shadow: 0 0 20px rgba(197,165,114,0.6);
+    }
+
+    /* Testimonials (carousel simple) */
+    .testimonials {
+      padding: 100px 0;
+      background: #0f121b;
+    }
+    .testimonial-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+      background: var(--glass-bg);
+      backdrop-filter: blur(10px);
+      padding: 2rem;
+      border-radius: 40px;
+      border: 1px solid var(--glass-border);
+    }
+    .testimonial-text {
+      font-size: 1.4rem;
+      font-style: italic;
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--gold);
+    }
+    .carousel-controls {
+      margin-top: 1.5rem;
+    }
+    .carousel-controls button {
+      background: transparent;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      padding: 6px 16px;
+      margin: 0 8px;
+      border-radius: 40px;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .carousel-controls button:hover {
+      background: var(--gold);
+      color: #0a0c12;
+    }
+
+    /* Contact Section */
+    .contact {
+      padding: 100px 0;
+      background: #0a0c12;
+    }
+    .contact-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 3rem;
+    }
+    .contact-info {
+      flex: 1;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 32px;
+    }
+    .contact-info p {
+      margin: 1rem 0;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .contact-form {
+      flex: 1.5;
+      background: var(--glass-bg);
+      backdrop-filter: blur(8px);
+      padding: 2rem;
+      border-radius: 32px;
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    input, textarea {
+      width: 100%;
+      padding: 14px 18px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(197,165,114,0.4);
+      border-radius: 28px;
+      color: white;
+      font-family: 'Montserrat', sans-serif;
+      transition: 0.3s;
+    }
+    input:focus, textarea:focus {
+      outline: none;
+      border-color: var(--gold);
+      background: rgba(0,0,0,0.5);
+    }
+    button[type="submit"] {
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #05070c;
+      border-top: 1px solid rgba(197,165,114,0.2);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero-content h1 { font-size: 2.4rem; }
+      h2 { font-size: 2rem; }
+      .about-grid { flex-direction: column; }
+      .contact-wrapper { flex-direction: column; }
+      .rooms-grid { flex-direction: column; align-items: center; }
+    }
+
+    /* Scroll animations */
+    .fade-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.9s cubic-bezier(0.2, 0.9, 0.4, 1.1), transform 0.8s ease;
+    }
+    .fade-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <img class="hero-bg" src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=1600" alt="Luxury Hotel Lobby">
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <h1>Golden Luxury Hotel</h1>
+    <p>Comfort & Elegance – Where Timeless Grandeur Meets Modern Sophistication</p>
+    <a href="#contact" class="btn-gold" id="bookNowBtn">Book Now</a>
+  </div>
+</section>
+
+<!-- About Section -->
+<section class="about" id="about">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>Our Heritage</h2>
+    </div>
+    <div class="about-grid">
+      <div class="about-text fade-scroll">
+        <p>Established in 1985, Golden Luxury Hotel has been a symbol of refined elegance and world-class hospitality. Nestled in the heart of the city, we blend timeless architecture with contemporary luxuries.</p>
+        <p>Our specialties include curated gastronomic experiences, a serene award-winning spa, and personalized butler service. Every corner whispers opulence, promising an unforgettable stay for discerning travelers.</p>
+        <p>From royal banquets to intimate getaways, we redefine comfort. Experience the golden standard of hospitality.</p>
+      </div>
+      <div class="about-img fade-scroll">
+        <img src="https://images.pexels.com/photos/261102/pexels-photo-261102.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Elegant hotel interior">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Rooms Section -->
+<section class="rooms" id="rooms">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>Luxurious Stays</h2>
+    </div>
+    <div class="rooms-grid">
+      <div class="room-card glass-card fade-scroll">
+        <div class="room-img"><img src="https://images.pexels.com/photos/1648771/pexels-photo-1648771.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Deluxe Room"></div>
+        <div class="room-info">
+          <h3>Deluxe Room</h3>
+          <p>Panoramic city views, king bed, marble bathroom, and complimentary breakfast.</p>
+          <div class="price">$290 / night</div>
+        </div>
+      </div>
+      <div class="room-card glass-card fade-scroll">
+        <div class="room-img"><img src="https://images.pexels.com/photos/271618/pexels-photo-271618.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Suite"></div>
+        <div class="room-info">
+          <h3>Presidential Suite</h3>
+          <p>Private terrace, jacuzzi, living room, exclusive lounge access & VIP amenities.</p>
+          <div class="price">$790 / night</div>
+        </div>
+      </div>
+      <div class="room-card glass-card fade-scroll">
+        <div class="room-img"><img src="https://images.pexels.com/photos/164595/pexels-photo-164595.jpeg?auto=compress&cs=tinysrgb&w=800" alt="Standard Room"></div>
+        <div class="room-info">
+          <h3>Standard Elegance</h3>
+          <p>Cozy yet chic, queen bed, workspace, rainfall shower. Perfect for business.</p>
+          <div class="price">$190 / night</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Facilities Section -->
+<section class="facilities" id="facilities">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>World-Class Amenities</h2>
+    </div>
+    <div class="facilities-grid">
+      <div class="facility-item fade-scroll"><img src="https://images.pexels.com/photos/2102587/pexels-photo-2102587.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Pool"><h4>Infinity Pool</h4></div>
+      <div class="facility-item fade-scroll"><img src="https://images.pexels.com/photos/40568/medical-appointment-doctor-healthcare-40568.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Spa"><h4>Serenity Spa</h4></div>
+      <div class="facility-item fade-scroll"><img src="https://images.pexels.com/photos/1954524/pexels-photo-1954524.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Gym"><h4>Fitness Center</h4></div>
+      <div class="facility-item fade-scroll"><img src="https://images.pexels.com/photos/260922/pexels-photo-260922.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Restaurant"><h4>Golden Spoon</h4></div>
+      <div class="facility-item fade-scroll"><img src="https://images.pexels.com/photos/1181406/pexels-photo-1181406.jpeg?auto=compress&cs=tinysrgb&w=200" alt="Conference"><h4>Grand Hall</h4></div>
+    </div>
+  </div>
+</section>
+
+<!-- Gallery Section -->
+<section class="gallery" id="gallery">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>Moments of Grandeur</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item fade-scroll"><img src="https://images.pexels.com/photos/258154/pexels-photo-258154.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Lobby"></div>
+      <div class="gallery-item fade-scroll"><img src="https://images.pexels.com/photos/1115804/pexels-photo-1115804.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Restaurant"></div>
+      <div class="gallery-item fade-scroll"><img src="https://images.pexels.com/photos/189333/pexels-photo-189333.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Pool Night"></div>
+      <div class="gallery-item fade-scroll"><img src="https://images.pexels.com/photos/1571460/pexels-photo-1571460.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Spa Area"></div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials Carousel -->
+<section class="testimonials" id="testimonials">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>Guest Stories</h2>
+    </div>
+    <div class="testimonial-slider fade-scroll" id="testimonialSlider">
+      <div class="testimonial-text" id="testimonialText">"An unforgettable experience! The service, ambiance, and attention to detail are beyond compare. The Golden Suite was pure heaven."</div>
+      <div class="testimonial-author" id="testimonialAuthor">— Victoria Chen, Travel Enthusiast</div>
+      <div class="carousel-controls">
+        <button id="prevTesti">❮ Prev</button>
+        <button id="nextTesti">Next ❯</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section with Email Sending -->
+<section class="contact" id="contact">
+  <div class="container">
+    <div class="section-title fade-scroll">
+      <h2>Reserve Your Stay</h2>
+    </div>
+    <div class="contact-wrapper">
+      <div class="contact-info fade-scroll">
+        <h3>Golden Luxury Hotel</h3>
+        <p>📍 88 Park Avenue, Manhattan, New York, NY 10022</p>
+        <p>📞 +1 (212) 555-8901</p>
+        <p>✉️ reservations@goldenluxury.com</p>
+        <p>🌟 Instagram | Facebook | X — @GoldenLuxuryHotel</p>
+        <p style="margin-top: 20px;"><em>Reach out directly or send a message. We guarantee a swift response.</em></p>
+      </div>
+      <div class="contact-form fade-scroll">
+        <form id="bookingForm">
+          <div class="form-group">
+            <input type="text" id="name" placeholder="Full Name" required>
+          </div>
+          <div class="form-group">
+            <input type="email" id="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <input type="tel" id="phone" placeholder="Phone Number">
+          </div>
+          <div class="form-group">
+            <textarea rows="4" id="message" placeholder="Your message or booking request..."></textarea>
+          </div>
+          <button type="submit" class="btn-gold" style="width:100%">Send Booking Request</button>
+          <p id="formFeedback" style="margin-top: 1rem; font-size:0.85rem; color: var(--gold); text-align:center;"></p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="fade-scroll">
+  <p>✨ Designed by Omkar | 2026 — Golden Luxury Hotel ✨</p>
+  <p style="margin-top: 8px; font-size: 0.7rem;">Where timeless elegance meets modern comfort</p>
+</footer>
+
+<script>
+  // SCROLL REVEAL (Intersection Observer)
+  const fadeElements = document.querySelectorAll('.fade-scroll');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.2 });
+  fadeElements.forEach(el => observer.observe(el));
+
+  // Testimonial carousel data
+  const testimonials = [
+    { text: '"An unforgettable experience! The service, ambiance, and attention to detail are beyond compare. The Golden Suite was pure heaven."', author: "— Victoria Chen, Travel Enthusiast" },
+    { text: '"Magnificent property! The staff anticipated every need. The infinity pool and spa made our honeymoon magical."', author: "— Michael & Sarah, Honeymooners" },
+    { text: '"Best hotel in the city. The conference facilities are top-tier and the culinary delights at Golden Spoon are Michelin-star quality."', author: "— James Whitmore, Corporate Client" },
+    { text: '"From check-in to departure, flawless. Elegant rooms, great location, and the golden afternoon tea is a must."', author: "— Priya Kapoor, Frequent Traveler" }
+  ];
+  let currentTestimonial = 0;
+  const testimonialText = document.getElementById('testimonialText');
+  const testimonialAuthor = document.getElementById('testimonialAuthor');
+  function updateTestimonial() {
+    testimonialText.innerText = testimonials[currentTestimonial].text;
+    testimonialAuthor.innerText = testimonials[currentTestimonial].author;
+    testimonialSlider.classList.add('fade-scroll'); // small re-trigger style
+    setTimeout(() => { if(testimonialSlider) testimonialSlider.style.opacity = '1'; }, 50);
+  }
+  document.getElementById('prevTesti')?.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial - 1 + testimonials.length) % testimonials.length;
+    updateTestimonial();
+  });
+  document.getElementById('nextTesti')?.addEventListener('click', () => {
+    currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+    updateTestimonial();
+  });
+  updateTestimonial();
+
+  // Book now button smooth scroll to contact
+  document.getElementById('bookNowBtn').addEventListener('click', (e) => {
+    e.preventDefault();
+    const contactSection = document.getElementById('contact');
+    contactSection.scrollIntoView({ behavior: 'smooth' });
+  });
+
+  // EMAIL SUBMIT: send to omkarmarennavaromu@gmail.com via mailto fallback or fetch using FormSubmit (static HTML)
+  // Using simple mailto with subject for demo — but spec requires email to omkarmarennavaromu@gmail.com.
+  // To ensure email sending works without backend, we'll use the "mailto:" technique with prefilled fields
+  // Also using Formspree alternative? But best standard: Use built-in action with a GET approach? Actually mailto is simplest.
+  // For robust, we'll open email client with details. However modern requirement: "Submit button should send email to: omkarmarennavaromu@gmail.com"
+  // Using hidden iframe / form submission to a service would need external. But we'll use "mailto:" body generator, which respects requirement.
+  // Additionally, we can use fetch with a mock but must not fail. Better: compose email and open default mail app.
+  const form = document.getElementById('bookingForm');
+  const feedback = document.getElementById('formFeedback');
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const phone = document.getElementById('phone').value.trim();
+    const message = document.getElementById('message').value.trim();
+    if (!name || !email) {
+      feedback.innerText = "❌ Please enter name and email.";
+      return;
+    }
+    const subject = `Booking Inquiry from ${name}`;
+    const body = `Guest Details:
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Message: ${message || 'No additional message'}
+
+--- Request from Golden Luxury Hotel Website ---`;
+    // direct email trigger to omkarmarennavaromu@gmail.com
+    window.location.href = `mailto:omkarmarennavaromu@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    feedback.innerText = "✨ Opening your email client... Please send to complete your booking request. Thank you!";
+    setTimeout(() => { feedback.innerText = ""; }, 5000);
+    // Optionally clear
+    form.reset();
+  });
+
+  // Additional smooth hover particles / shine effect subtle (optional shine on hero)
+  const hero = document.querySelector('.hero');
+  if(hero) {
+    hero.style.position = 'relative';
+    // small elegant shine overlay that moves on mousemove? (soft particle effect)
+    const shine = document.createElement('div');
+    shine.style.position = 'absolute';
+    shine.style.top = '0';
+    shine.style.left = '0';
+    shine.style.width = '100%';
+    shine.style.height = '100%';
+    shine.style.pointerEvents = 'none';
+    shine.style.background = 'radial-gradient(circle at var(--x, 50%) var(--y, 50%), rgba(197,165,114,0.15) 0%, transparent 60%)';
+    shine.style.zIndex = '2';
+    hero.appendChild(shine);
+    hero.addEventListener('mousemove', (e) => {
+      const rect = hero.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      shine.style.setProperty('--x', `${x}%`);
+      shine.style.setProperty('--y', `${y}%`);
+    });
+  }
+  // Also add small hover glassmorphism glow for buttons interaction
+  document.querySelectorAll('.btn-gold').forEach(btn => {
+    btn.addEventListener('mouseenter', (e) => {
+      btn.style.transform = 'scale(1.02)';
+    });
+    btn.addEventListener('mouseleave', () => {
+      btn.style.transform = 'scale(1)';
+    });
+  });
+</script>
+</body>
+</html>
